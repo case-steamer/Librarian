@@ -1,6 +1,7 @@
 package local.work.panels;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class PropertiesArea extends JPanel {
     private static JLabel label;
@@ -8,7 +9,6 @@ public class PropertiesArea extends JPanel {
     public PropertiesArea() {
         PropertiesArea.label = new JLabel("Properties Area");
 
-        this.add(label);
         label.setAlignmentY(0.5f);
     }
 }
