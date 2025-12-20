@@ -11,6 +11,46 @@ import javax.swing.border.Border;
 
 public class Window extends JPanel{
 
+    public JPanel[] getPanels() {
+        return panels;
+    }
+
+    public void setPanels(JPanel[] panels) {
+        this.panels = panels;
+    }
+
+    public Toolbar getToolbar() {
+        return toolbar;
+    }
+
+    public void setToolbar(Toolbar toolbar) {
+        this.toolbar = toolbar;
+    }
+
+    public DisplayArea getDisplayArea() {
+        return displayArea;
+    }
+
+    public void setDisplayArea(DisplayArea displayArea) {
+        this.displayArea = displayArea;
+    }
+
+    public FileTreeArea getFileTreeArea() {
+        return fileTreeArea;
+    }
+
+    public void setFileTreeArea(FileTreeArea fileTreeArea) {
+        this.fileTreeArea = fileTreeArea;
+    }
+
+    public PropertiesArea getPropertiesArea() {
+        return propertiesArea;
+    }
+
+    public void setPropertiesArea(PropertiesArea propertiesArea) {
+        this.propertiesArea = propertiesArea;
+    }
+
     private Toolbar toolbar;
     private DisplayArea displayArea;
     private FileTreeArea fileTreeArea;
