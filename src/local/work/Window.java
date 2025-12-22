@@ -4,6 +4,7 @@ import local.work.panels.DisplayArea;
 import local.work.panels.FileTreeArea;
 import local.work.panels.PropertiesArea;
 import local.work.panels.Toolbar;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
@@ -72,7 +73,7 @@ public class Window extends JPanel{
     private JPanel[] panels;
     private Brain brain;
 
-    public Window(Brain brain) {
+    public Window(@NotNull Brain brain) {
         toolbar = new Toolbar();
         fileTreeArea = new FileTreeArea();
         displayArea = new DisplayArea();
