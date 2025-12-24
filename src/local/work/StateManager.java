@@ -8,6 +8,7 @@ that means that StateManager needs to be CONSTANTLY updating.
 package local.work;
 
 import local.work.panels.*;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
@@ -30,7 +31,7 @@ public class StateManager {
     Brain brain;
 
 
-    public StateManager(JPanel[] panels, Brain brain) {
+    public StateManager(JPanel[] panels, @NotNull Brain brain) {
         this.panels = panels;
         this.brain = brain;
 
