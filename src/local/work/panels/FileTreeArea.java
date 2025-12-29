@@ -6,6 +6,7 @@ import java.awt.*;
 
 public class FileTreeArea extends JPanel implements BrainClient {
     private static JLabel label;
+    private static Brain brain;
 
     public static JLabel getLabel() {
         return label;
@@ -13,6 +14,12 @@ public class FileTreeArea extends JPanel implements BrainClient {
 
     public static void setLabel(String t) {
         label.setText(t);
+    }
+
+    @Override
+    public void setBrain(Brain brain) {
+        this.brain = brain;
+        System.out.println("FileTreeArea recognizes Brain!");
     }
 
     @Override

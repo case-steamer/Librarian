@@ -17,6 +17,7 @@ public class Brain {
         for (JPanel panel : panels) {
             if (panel instanceof BrainClient) {
                 ((BrainClient) panel).update(getRootDir());
+                ((BrainClient) panel).setBrain(this);
             }
         }
     }

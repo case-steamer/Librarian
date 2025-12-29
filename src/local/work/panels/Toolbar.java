@@ -6,6 +6,7 @@ import java.awt.*;
 
 public class Toolbar extends JPanel implements BrainClient {
     private static JTextField addressBar;
+    private static Brain brain;
     private static Dimension d;
 
     public static JTextField getAddressBar() {
@@ -14,6 +15,12 @@ public class Toolbar extends JPanel implements BrainClient {
 
     public static void setAddressBar(String t) {
         addressBar.setText(t);
+    }
+
+    @Override
+    public void setBrain(Brain brain) {
+        this.brain = brain;
+        System.out.println("Toolbar recognizes Brain!");
     }
 
     @Override
