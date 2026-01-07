@@ -1,6 +1,8 @@
 package local.work.panels;
 
 import local.work.Brain;
+import org.jetbrains.annotations.NotNull;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -31,7 +33,7 @@ public class Toolbar extends JPanel implements BrainClient, ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(@NotNull ActionEvent e) {
         if (e.getSource() == homeBtn) {
             brain.publish("~");
         }
@@ -48,7 +50,7 @@ public class Toolbar extends JPanel implements BrainClient, ActionListener {
         setAddressBar(u);
     }
 
-    private ImageIcon setIconSize(ImageIcon icon) {
+    private @NotNull ImageIcon setIconSize(ImageIcon icon) {
         Image img = icon.getImage();
         Image resizedImg = img.getScaledInstance(24, 24, Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImg);
