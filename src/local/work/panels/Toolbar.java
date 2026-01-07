@@ -8,7 +8,10 @@ import java.awt.event.ActionListener;
 
 public class Toolbar extends JPanel implements BrainClient, ActionListener {
     private static JButton homeBtn;
+    private static JButton rootBtn;
+    private static JButton backBtn;
     private static ImageIcon homeIcon;
+    private static ImageIcon rootIcon;
     private static JTextField addressBar;
     private static Brain brain;
     private static Dimension d;
@@ -32,6 +35,9 @@ public class Toolbar extends JPanel implements BrainClient, ActionListener {
         if (e.getSource() == homeBtn) {
             brain.publish("~");
         }
+        else if (e.getSource() == rootBtn) {
+            brain.publish(brain.getRootDir());
+        }
     }
 
     @Override
@@ -44,7 +50,7 @@ public class Toolbar extends JPanel implements BrainClient, ActionListener {
 
     private ImageIcon setIconSize(ImageIcon icon) {
         Image img = icon.getImage();
-        Image resizedImg = img.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+        Image resizedImg = img.getScaledInstance(24, 24, Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImg);
     }
 
@@ -58,10 +64,17 @@ public class Toolbar extends JPanel implements BrainClient, ActionListener {
         Toolbar.homeBtn.setPreferredSize(Toolbar.iconSize);
         Toolbar.homeBtn.addActionListener(this);
 
+        Toolbar.rootIcon = new ImageIcon(getClass().getResource("../../../resources/admin-9580.png"));
+        Toolbar.rootIcon = setIconSize(Toolbar.rootIcon);
+        Toolbar.rootBtn = new JButton(Toolbar.rootIcon);
+        Toolbar.rootBtn.setPreferredSize(iconSize);
+        Toolbar.rootBtn.addActionListener(this);
+
         Toolbar.d = new Dimension(500, 25);
         Toolbar.addressBar = new JTextField();
         addressBar.setPreferredSize(d);
 
+        this.add(rootBtn);
         this.add(homeBtn);
         this.add(addressBar);
         this.setBackground(Color.RED);
