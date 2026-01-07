@@ -51,7 +51,7 @@ public class Toolbar extends JPanel implements BrainClient, ActionListener {
         setAddressBar(u);
     }
 
-    private @NotNull ImageIcon setIconSize(ImageIcon icon) {
+    private @NotNull ImageIcon setIconSize(@NotNull ImageIcon icon) {
         Image img = icon.getImage();
         Image resizedImg = img.getScaledInstance(24, 24, Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImg);
