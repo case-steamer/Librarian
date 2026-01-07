@@ -14,6 +14,7 @@ public class Toolbar extends JPanel implements BrainClient, ActionListener {
     private static JButton backBtn;
     private static ImageIcon homeIcon;
     private static ImageIcon rootIcon;
+    private static ImageIcon backIcon;
     private static JTextField addressBar;
     private static Brain brain;
     private static Dimension d;
@@ -39,6 +40,8 @@ public class Toolbar extends JPanel implements BrainClient, ActionListener {
         }
         else if (e.getSource() == rootBtn) {
             brain.publish(brain.getRootDir());
+        } else if (e.getSource() == backBtn) {
+            brain.getBack();
         }
         // Implement a Java "Stack" reference type here to add functionality to the back button.
     }
@@ -73,10 +76,18 @@ public class Toolbar extends JPanel implements BrainClient, ActionListener {
         Toolbar.rootBtn.setPreferredSize(iconSize);
         Toolbar.rootBtn.addActionListener(this);
 
+        Toolbar.backIcon = new ImageIcon(getClass().getResource("../../../resources/back.png"));
+        Toolbar.backIcon = setIconSize(Toolbar.backIcon);
+        Toolbar.backBtn = new JButton(Toolbar.backIcon);
+        Toolbar.backBtn.setPreferredSize(iconSize);
+        Toolbar.backBtn.addActionListener(this);
+
+
         Toolbar.d = new Dimension(500, 25);
         Toolbar.addressBar = new JTextField();
         addressBar.setPreferredSize(d);
 
+        this.add(backBtn);
         this.add(rootBtn);
         this.add(homeBtn);
         this.add(addressBar);

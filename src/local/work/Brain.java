@@ -15,6 +15,7 @@ public class Brain {
     private static String currentLocation;
     private static JPanel[] panels;
     private static Stack<String> history;
+    private static boolean caller;
 
     public void publish(String string) {
         history.push(currentLocation);
@@ -24,6 +25,13 @@ public class Brain {
                 ((BrainClient) panel).update(string);
                 ((BrainClient) panel).setBrain(this);
             }
+        }
+    }
+
+    public void getBack() {
+        if (history.peek() != null) {
+            String backElement = history.pop();
+            this.publish(backElement);
         }
     }
 
