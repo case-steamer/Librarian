@@ -14,11 +14,10 @@ public class Brain {
     private static String rootDir;
     private static String currentLocation;
     private static JPanel[] panels;
-    private static Stack<String> history;
+    public static Stack<String> history;
     private static boolean caller;
 
     public void publish(String string) {
-        history.push(currentLocation);
         currentLocation = string;
         for (JPanel panel : panels) {
             if (panel instanceof BrainClient) {
@@ -33,10 +32,17 @@ public class Brain {
             String backElement = history.pop();
             this.publish(backElement);
         }
+        else {
+            this.publish(rootDir);
+        }
     }
 
     public String getRootDir() {
         return rootDir;
+    }
+
+    public String getCurrentLocation() {
+        return currentLocation;
     }
 
     public Brain(JPanel[] panels) {
