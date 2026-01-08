@@ -19,12 +19,7 @@ public class Brain {
     private static boolean caller;
 
     public void publish(String string) {
-        if (history.empty() || history.peek() == null) {
-            window.getToolbar().getBackBtn().setEnabled(false);
-        }
-        else {
-            window.getToolbar().getBackBtn().setEnabled(true);
-        }
+        setBackButtonState();
         currentLocation = string;
         for (JPanel panel : panels) {
             if (panel instanceof BrainClient) {
@@ -34,12 +29,17 @@ public class Brain {
         }
     }
 
-    public void getBack() {
-        if (history.empty()) {
-        System.out.println("Stack empty!");
-        // In future, replace terminal println with window in message
+    private static void setBackButtonState() {
+        if (history.empty() || history.peek() == null) {
+            window.getToolbar().getBackBtn().setEnabled(false);
         }
-        else if (history.peek() != null && !history.empty()) {
+        else {
+            window.getToolbar().getBackBtn().setEnabled(true);
+        }
+    }
+
+    public void getBack() {
+        if (history.peek() != null && !history.empty()) {
             String backElement = history.pop();
             this.publish(backElement);
         }
