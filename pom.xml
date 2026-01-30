@@ -58,6 +58,30 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.github.akman</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jpackage</goal>
+                        </goals>
+                        <configuration>
+                            <type>DEB</type>
+                            <appversion>1.0.0</appversion>
+                            <vendor>James Haining</vendor>
+                            <input>target</input>
+                            <mainjar>Librarian-1.0-SNAPSHOT.jar</mainjar>
+                            <mainclass>main.local.work.Main</mainclass>
+                            <icon>src/main/resources/book-logo.png</icon>
+                            <linuxmenugroup>System</linuxmenugroup>
+                            <linuxshortcut>true</linuxshortcut>
+                            <licensefile>${project.basedir}.idea/License.md</licensefile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
